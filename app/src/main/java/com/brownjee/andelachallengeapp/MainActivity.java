@@ -8,7 +8,9 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -49,9 +51,12 @@ public class MainActivity extends AppCompatActivity {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_user_list);
-        GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), LinearLayoutManager.VERTICAL));
+
 
 
 
